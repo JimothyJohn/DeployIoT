@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OS="$(uname -a |  awk '{print $1}')"
+OS="$(lsb_release -a | grep Distributor | awk '{print $3}' | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -a | awk '{print $14}')"
 
 echo "OS: $OS, ARCH: $ARCH"
